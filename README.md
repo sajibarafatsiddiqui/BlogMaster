@@ -1,6 +1,7 @@
 # 📗 Table of Contents
 
 <img src='./db_blog.jpg'>
+
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
