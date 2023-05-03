@@ -69,9 +69,9 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 In order to run this project you need:
-ruby
-rails
-postgresql
+- ruby
+- rails
+- postgresql
   <br>
 
 
@@ -90,8 +90,10 @@ gem i rails
 ### Usage
 
 To run the project, execute the following command:
+```sh
   cd BlogApp
   rails s
+```
 ### Run tests
 
 To run tests, run the following command:
