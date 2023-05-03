@@ -78,10 +78,11 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository to your desired folder:
+  ```sh
   cd BlogMaster
     <br>
   git clone git@github.com:sajibarafatsiddiqui/BlogMaster.gitt
-
+```
 ### Install
 
 Install this project with:
