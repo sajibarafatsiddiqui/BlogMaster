@@ -35,7 +35,6 @@
   <ul>
     <li><a href="https://rubyonrails.org/">RubyonRails</a></li>
   </ul>
-</details>
 <summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
