@@ -26,8 +26,8 @@
 **BlogMaster** is a Rails interactive application where Users can create Posts and also can give and get like and comment.  
 
 ## 🛠 Built With <a name="built-with"></a>
->Ruby on Rails
->Postgresql
+ >Ruby on Rails
+ >Postgresql
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
@@ -35,6 +35,8 @@
   <ul>
     <li><a href="https://rubyonrails.org/">RubyonRails</a></li>
   </ul>
+</details> 
+<details>
 <summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
