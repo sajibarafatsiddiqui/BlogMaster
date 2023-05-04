@@ -1,8 +1,0 @@
-rails new BlogMaster --database=postgresql
-rails db:create
-rails generate model User name:string photo:string bio:text postscounter:integer
-rails db:migrate
-rails generate model Post title:string text:text commentscounter:integer likescounter:integer
-git push -f origin 67595e1:dev 
- rails generate migration RenameReferenceUserForLikes
- first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
