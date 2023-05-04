@@ -5,4 +5,4 @@ rails db:migrate
 rails generate model Post title:string text:text commentscounter:integer likescounter:integer
 git push -f origin 67595e1:dev 
  rails generate migration RenameReferenceUserForLikes
- scope :created_before, ->(time) { where("created_at < ?", time) if time.present? }
+ first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
