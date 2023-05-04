@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :posts, class_name: 'Post', foreign_key: 'author'
-  has_many :comments
-  has_many :likes
+  has_many :posts, foreign_key: 'author'
+  has_many :comments, foreign_key: 'author'
+  has_many :likes, foreign_key: 'author'
 
   def first_three_post
     posts.limit(1)
