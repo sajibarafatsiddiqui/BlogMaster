@@ -3,3 +3,6 @@ rails db:create
 rails generate model User name:string photo:string bio:text postscounter:integer
 rails db:migrate
 rails generate model Post title:string text:text commentscounter:integer likescounter:integer
+git push -f origin 67595e1:dev 
+ rails generate migration RenameReferenceUserForLikes
+ scope :created_before, ->(time) { where("created_at < ?", time) if time.present? }
