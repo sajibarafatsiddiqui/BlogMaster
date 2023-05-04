@@ -4,7 +4,6 @@ class Post < ApplicationRecord
   has_many :likes
 
   scope :total_post_by_author, ->(author_id) { where('author_id = ?', author_id).count if author_id.present? }
-  
   def update_posts_counter(user_id)
     user_id.update(postscounter: self.class.total_post_by_author(user_id))
   end
