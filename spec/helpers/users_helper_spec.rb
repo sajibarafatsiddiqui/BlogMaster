@@ -1,3 +1,4 @@
+# This file is copied to spec/ when you run rails generate rspec:install
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
