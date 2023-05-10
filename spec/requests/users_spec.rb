@@ -1,43 +1,39 @@
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
-  it { should route(:get, 'users').to(action: :index) }
-  it { should route(:get, 'users/1').to(action: :show, id: 1) }
-end
-
-RSpec.describe UsersController, type: :controller do
-  before { get :index }
-  it { should respond_with(200) }
-end
-
-RSpec.describe UsersController, type: :controller do
-  before { get :index }
-  it { should render_template('index') }
-end
-
-RSpec.describe UsersController, type: :controller do
-  describe 'GET /users' do
+RSpec.describe UsersController, type: :request do
+  describe 'GET /index http response' do
     it 'returns http success' do
-      get :index
+      get '/users/'
+      expect(response.status).to eq(200)
+    end
+  end
+  describe 'GET /index template' do
+    before { get '/users/' }
+    it { should render_template('index') }
+  end
+
+  describe 'GET /users placeholder' do
+    it 'includes proper placeholder text' do
+      get '/users/'
       expect(response.body).to include('I am list of users')
     end
   end
-end
 
-RSpec.describe UsersController, type: :controller do
-  before { get :index, params: { id: 1 } }
-  it { should respond_with(200) }
-end
-
-RSpec.describe UsersController, type: :controller do
-  before { get :show, params: { id: 1 } }
-  it { should render_template('show') }
-end
-
-RSpec.describe UsersController, type: :controller do
-  describe 'GET /users/:user_id' do
+  describe 'GET /show http response' do
     it 'returns http success' do
-      get :show, params: { id: 1 }
+      get '/users/1'
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe 'GET /show template' do
+    before { get '/users/1' }
+    it { should render_template('show') }
+  end
+
+  describe 'GET /show placeholder' do
+    it 'includes proper placeholder text' do
+      get '/users/1'
       expect(response.body).to include('I am user with id provided as parameter')
     end
   end

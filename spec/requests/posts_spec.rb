@@ -1,43 +1,39 @@
 require 'rails_helper'
 
-RSpec.describe PostsController, type: :controller do
-  before { get :index, params: { user_id: 1 } }
-  it { should respond_with(200) }
-end
-
-RSpec.describe PostsController, type: :controller do
-  it { should route(:get, 'users/1/posts').to(action: :index, user_id: 1) }
-  it { should route(:get, 'users/1/posts/1').to(action: :show, id: 1, user_id: 1) }
-end
-
-RSpec.describe PostsController, type: :controller do
-  before { get :index, params: { user_id: 1 } }
-  it { should render_template('index') }
-end
-
-RSpec.describe PostsController, type: :controller do
-  describe 'GET /users/:user_id/posts' do
+RSpec.describe PostsController, type: :request do
+  describe 'GET /index http response' do
     it 'returns http success' do
-      get :index, params: { user_id: 1 }
+      get '/users/1/posts/'
+      expect(response.status).to eq(200)
+    end
+  end
+  describe 'GET /index template' do
+    before { get '/users/1/posts/' }
+    it { should render_template('index') }
+  end
+
+  describe 'GET /index placeholder text' do
+    it 'includes proper placeholder text' do
+      get '/users/1/posts/'
       expect(response.body).to include('I am users posts')
     end
   end
-end
 
-RSpec.describe PostsController, type: :controller do
-  before { get :index, params: { user_id: 1, id: 1 } }
-  it { should respond_with(200) }
-end
-
-RSpec.describe PostsController, type: :controller do
-  before { get :show, params: { user_id: 1, id: 1 } }
-  it { should render_template('show') }
-end
-
-RSpec.describe PostsController, type: :controller do
-  describe 'GET /users/:user_id/posts' do
+  describe 'GET /show http response' do
     it 'returns http success' do
-      get :show, params: { user_id: 1, id: 1 }
+      get '/users/1/posts/01'
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe 'GET /show template' do
+    before { get '/users/1/posts/1' }
+    it { should render_template('show') }
+  end
+
+  describe 'GET /show placeholder text' do
+    it 'includes proper placeholder text' do
+      get '/users/1/posts/1'
       expect(response.body).to include('I am users post by id')
     end
   end
