@@ -48,6 +48,7 @@
 - **Create the model**
 - **Create four entities Post,Comment,Users,Like**
 - **Created controllers, routes, views according to the naming convention**
+- **Created Unit tests using RSpec on Controller, Views and Routes**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
