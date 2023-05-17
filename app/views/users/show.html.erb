@@ -1,1 +1,28 @@
-<h1>I am user with id provided as parameter</h1>
+<div class="row justify-content-between m-5">
+  <div class="col-3 col-sm-3"><img src=<%= @user.photo %>/></div>
+  <div class="col-9 col-sm-9 border border-dark mb-3">
+    <%= link_to user_path(@user), class:"text-decoration-none text-dark", :action => 'go'  do%>
+      <div class="row justify-content-between flex-1">
+        <div class="col-2 ">
+          <h2><%= @user.name %></h2>
+        </div>
+        <div class="col-8 d-flex">
+          <span class="mt-auto">Total number of posts: <%= @user.postscounter %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row justify-content-between m-auto border border-dark mb-3">
+    <h2>Bio</h2>
+    <p class="m-auto"><%= @user.bio %></p>
+  </div>
+  <% @first_three_post.each do |post| %>
+  <div class="row justify-content-between m-auto border border-dark mb-3">
+    <h2><%= post.title %></h2>
+    <p><%= post.text %></p>
+    <span class="d-flex justify-content-end">Comments: <%= post.commentscounter %>,Likes: <%= post.likescounter %></span>
+  </div>
+  <% end %>
+  <%= link_to "show all posts", user_posts_path(@user), class: "d-flex btn btn-secondary m-auto col-2" %>
+</div>
+
