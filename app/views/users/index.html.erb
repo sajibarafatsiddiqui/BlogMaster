@@ -1,6 +1,6 @@
 <% @users.each do |user| %>
   <div class="row justify-content-between m-4">
-    <div class="col-3 col-sm-3"><img src=<%= user.photo %> alt= "rss feed", height= 42, width= 42/></div>
+    <div class="col-3 col-sm-3"><img src=<%= user.photo %> alt= "photo", height= 42, width= 42/></div>
     <div class="col-9 col-sm-8 border border-dark ">
     <%= link_to user_path(user), class:"text-decoration-none text-dark", :action => 'go'  do%>
       <div class="row justify-content-between flex-1">
@@ -8,7 +8,7 @@
           <h2><%= user.name %></h2>
         </div>
         <div class="col-8 d-flex">
-          <span class="mt-auto">Total number of posts: <%= user.postscounter %></span>
+          <span class="mt-auto">Total number of posts: <%= user.update_posts_counter %></span>
         </div>
       </div>
       <% end %>
