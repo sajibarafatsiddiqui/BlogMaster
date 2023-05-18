@@ -1,5 +1,5 @@
- <% @posts.each do |post| %>
  <div class="container mt-5">
+ <% @posts.each do |post| %>
   <div class="row justify-content-between m-auto border border-dark mb-1">
   <%= link_to user_post_path(@user,post.id), class:"text-decoration-none text-dark"  do%>
     <h2><%= post.title  %></h2>
@@ -7,10 +7,13 @@
     <p><%= truncate(post.text, length: 20) %></p>
     <span class="d-flex justify-content-end">Comments: <%= post.commentscounter %>,Likes: <%= post.likescounter %></span>
   </div>
-  <% post.comments.all.each do |comment| %>
+  <% post.last_five_comments.each do |comment| %>
    <div class="row justify-content-between m-auto border border-dark mb-3">
    <p><%= comment.author.name %>: <%= comment.text %></p>
    </div>
    <% end %>
-    </div>
   <% end %>
+  <div class="row col-2 justify-content-between m-auto mb-1">
+    <button class="btn btn-primary" type="button">Pagination</button>
+  </div>
+   </div>
