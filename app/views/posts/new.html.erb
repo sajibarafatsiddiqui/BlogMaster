@@ -1,0 +1,5 @@
+<%= form_with model: [:user, @post] do |form| %>
+  Title: <%= form.text_field :title %><br />
+  Text : <%= form.text_field :text %><br />
+  <%= form.submit %>
+<% end %>

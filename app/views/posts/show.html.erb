@@ -4,6 +4,10 @@
     <span class="d-flex justify-content-end">Comments: <%= @post.commentscounter %>,Likes: <%= @post.likescounter %></span>
     <p><%= @post.text %></p>
   </div>
+  <%= form_with model: [@post, @comment] do |form| %>
+  Text : <%= form.text_field :text %><br />
+  <%= form.submit %>
+<% end %>
   <% @post.comments.all.each do |comment| %>
    <div class="row justify-content-between m-auto border border-dark mb-3">
    <p><%= comment.author.name %>: <%= comment.text %></p>
