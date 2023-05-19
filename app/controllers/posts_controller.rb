@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     # new object from params
     @post = Post.new(post_params.merge(author: current_user, commentscounter: 0, likescounter: 0))
-    if @post.save 
+    if @post.save
       redirect_to user_post_path(:user, @post.id)
     else
       render :new, status: :unprocessable_entity
@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
