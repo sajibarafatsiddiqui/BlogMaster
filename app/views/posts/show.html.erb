@@ -1,1 +1,13 @@
-<h1>I am users post by id</h1>
+ <div class="container mt-5">
+  <div class="row justify-content-between m-auto border border-dark mb-1">
+    <h2><%= @post.title %> by <%= @post.author.name %></h2>
+    <span class="d-flex justify-content-end">Comments: <%= @post.commentscounter %>,Likes: <%= @post.likescounter %></span>
+    <p><%= @post.text %></p>
+  </div>
+  <% @post.comments.all.each do |comment| %>
+   <div class="row justify-content-between m-auto border border-dark mb-3">
+   <p><%= comment.author.name %>: <%= comment.text %></p>
+   </div>
+   <% end %>
+    </div>
+  
