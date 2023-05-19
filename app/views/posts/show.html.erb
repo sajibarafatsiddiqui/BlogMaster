@@ -4,10 +4,13 @@
     <span class="d-flex justify-content-end">Comments: <%= @post.commentscounter %>,Likes: <%= @post.likescounter %></span>
     <p><%= @post.text %></p>
   </div>
-  <%= form_with model: [@post, @comment] do |form| %>
-  Text : <%= form.text_field :text %><br />
-  <%= form.submit %>
+  <%= form_with model: [:user, :post, @comment],  url: user_post_comments_path(@user, @post), html: { class: 'row justify-content-between m-auto border border-dark mb-3' } do |form| %>
+  <p>Create a comment:</p>  <%= form.text_field :text, class: "col-11 m-auto" %><br />
+  <%= form.submit class: "mt-2 mb-2 m-4 col-4 d-flex " %>
 <% end %>
+ <div class="row justify-content-between m-auto border border-dark mb-3">
+  <p>Give a like:</p>    <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post %>
+  </div>
   <% @post.comments.all.each do |comment| %>
    <div class="row justify-content-between m-auto border border-dark mb-3">
    <p><%= comment.author.name %>: <%= comment.text %></p>
