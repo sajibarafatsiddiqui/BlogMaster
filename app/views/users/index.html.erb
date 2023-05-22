@@ -1,3 +1,4 @@
+<h1>List of All Users</h1>
 <% @users.each do |user| %>
   <div class="row justify-content-between m-4">
     <div class="col-3 col-sm-3"><img src=<%= user.photo %> alt= "photo", height= 42, width= 42/></div>
@@ -5,7 +6,9 @@
     <%= link_to user_path(user), class:"text-decoration-none text-dark", :action => 'go'  do%>
       <div class="row justify-content-between flex-1">
         <div class="col-2 ">
+        <%= link_to user_path(user), class:"text-decoration-none text-dark" do%>
           <h2><%= user.name %></h2>
+             <% end %>
         </div>
         <div class="col-8 d-flex">
           <span class="mt-auto">Total number of posts: <%= user.postscounter %></span>
