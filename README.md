@@ -45,10 +45,11 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **Create the model**
-- **Create four entities Post,Comment,Users,Like**
+- **Created the model**
+- **Created four entities Post,Comment,Users,Like**
 - **Created controllers, routes, views according to the naming convention**
 - **Created Unit tests using RSpec on Controller, Views and Routes**
+- **Added the feaured of making commentd and giving like to blog post**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
