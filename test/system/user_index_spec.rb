@@ -11,6 +11,7 @@ RSpec.describe 'Users', type: :feature do
       expect(page).to have_content('List of All Users')
       expect(page).to have_content(user1.name)
       expect(page).to have_css("img[src*='#{user1.photo}']")
+      expect(page).to have_content("Total number of posts: #{user1.postscounter}")
     end
 
     it 'click link' do
