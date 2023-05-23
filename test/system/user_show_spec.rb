@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'User show page', type: :feature do
   let(:user1) { create(:user, bio: 'Do help Get Help') }
-  let!(:posts){ create_list(:post,5, author: user1 ) }
+  let!(:posts) { create_list(:post, 5, author: user1) }
 
   scenario "I can see the user's profile picture, username, number of posts, and bio" do
     visit user_path(user1)
@@ -21,7 +21,7 @@ RSpec.feature 'User show page', type: :feature do
 
   scenario "I can see a button that lets me view all of a user's posts" do
     visit user_path(user1)
-    expect(page).to have_link("show all posts", href: user_posts_path(user1))
+    expect(page).to have_link('show all posts', href: user_posts_path(user1))
   end
 
   scenario "When I click a user's post, it redirects me to that post's show page" do

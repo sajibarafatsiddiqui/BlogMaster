@@ -4,7 +4,6 @@ RSpec.feature 'User post index page', type: :feature do
   let(:user1) { create(:user) }
   let!(:posts) { create_list(:post, 5, author: user1) }
 
-
   scenario "I can see the user's profile picture and the user's name and number of posts" do
     visit user_posts_path(user1)
     expect(page).to have_css("img[src*='#{user1.photo}']").and have_content(user1.name)
@@ -28,7 +27,7 @@ RSpec.feature 'User post index page', type: :feature do
         expect(page).to have_content(comment.author.name)
       end
     end
-    end
+  end
 
   scenario "When I click on a post, it redirects me to that post's show page" do
     visit user_posts_path(user1)
