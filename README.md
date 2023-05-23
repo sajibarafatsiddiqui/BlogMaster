@@ -50,6 +50,7 @@
 - **Created controllers, routes, views according to the naming convention**
 - **Created Unit tests using RSpec on Controller, Views and Routes**
 - **Added the feaured of making commentd and giving like to blog post**
+- **Added Integration testing using Capybara**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,6 +95,8 @@ To run tests, run the following command:
 
 rspec spec
 
+Integration Test:
+ rspec ./test/system/
 ### Deployment
 
 The deployment is under processing.

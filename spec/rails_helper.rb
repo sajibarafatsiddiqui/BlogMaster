@@ -72,3 +72,11 @@ end
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  options.binary = 'D:/chrome.exe' # Update this with the path of chrome
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options:)
+end
