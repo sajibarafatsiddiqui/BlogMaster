@@ -11,7 +11,7 @@
  <div class="row justify-content-between m-auto border border-dark mb-3">
   <p>Give a like:</p>    <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post %>
   </div>
-  <% @post.comments.all.each do |comment| %>
+  <% @post.comments.includes(:author).each do |comment| %>
    <div class="row justify-content-between m-auto border border-dark mb-3">
    <p><%= comment.author.name %>: <%= comment.text %></p>
    </div>

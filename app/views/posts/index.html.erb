@@ -1,11 +1,27 @@
  <div class="container mt-5">
+ <div class="row justify-content-between m-5">
+  <div class="col-3 col-sm-3"><img src=<%= @user.photo %>  alt= "photo", height= 42, width= 42 /></div>
+  <div class="col-9 col-sm-9 border border-dark mb-3">
+    <%= link_to user_path(@user), class:"text-decoration-none text-dark", :action => 'go'  do%>
+      <div class="row justify-content-between flex-1">
+        <div class="col-2 ">
+          <h2><%= @user.name %></h2>
+        </div>
+        <div class="col-8 d-flex">
+          <span class="mt-auto">Total number of posts: <%= @user.postscounter %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
  <% @posts.each do |post| %>
   <div class="row justify-content-between m-auto border border-dark mb-1">
-  <%= link_to user_post_path(@user,post.id), class:"text-decoration-none text-dark"  do%>
+  <%= link_to user_post_path(@user,post.id), class:"d-flex text-decoration-none text-dark"  do%>
     <h2><%= post.title  %></h2>
-  <%end%>
-    <p><%= truncate(post.text, length: 20) %></p>
+  
+    <p id=<%= post.id %>><%= truncate(post.text, length: 20) %></p>
     <span class="d-flex justify-content-end">Comments: <%= post.commentscounter %>,Likes: <%= post.likescounter %></span>
+<%end%>
   </div>
   <% post.last_five_comments.each do |comment| %>
    <div class="row justify-content-between m-auto border border-dark mb-3">

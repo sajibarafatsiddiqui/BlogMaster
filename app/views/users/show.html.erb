@@ -17,11 +17,15 @@
     <p class="m-auto"><%= @user.bio %></p>
   </div>
   <% @first_three_post.each do |post| %>
+ 
     <div class="row justify-content-between m-auto border border-dark mb-3">
+     <%= link_to user_post_path(@user,post), class: "text-decoration-none text-dark" do%>
       <h2><%= post.title %></h2>
-      <p><%= post.text %></p>
+      <p id=<%=post.id%>><%= post.text %></p>
       <span class="d-flex justify-content-end">Comments: <%= post.commentscounter %>,Likes: <%= post.likescounter %></span>
+      <% end %>
     </div>
+   
   <% end %>
   <%= link_to "show all posts", user_posts_path(@user), class: "d-flex btn btn-secondary m-auto col-2" %>
 </div>
