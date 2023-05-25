@@ -19,8 +19,10 @@
   <% @first_three_post.each do |post| %>
     <div class="row justify-content-between m-auto border border-dark mb-3">
       <h2 class='col-12'><%= post.title %></h2>
-      <p><%= post.text  class='col-12' %></p>
-       <%= link_to "delete this post ", user_posts_path(@user), class: "d-flex btn btn-danger m-auto col-2 m-0 m-" %>
+      <p class='col-12'><%= post.text %></p>
+          <% if can? :destroy, @post %>
+  <%= link_to 'Delete', @post, method: :delete , class: "col-2 m-2 btn btn-danger"%>
+<% end %>
       <span class="d-flex justify-content-end">Comments: <%= post.commentscounter %>,Likes: <%= post.likescounter %></span>
     </div>
   <% end %>

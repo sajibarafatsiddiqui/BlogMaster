@@ -21,13 +21,17 @@
       <% end %>
       <p class='p-2' id=<%= post.id %>><%= truncate(post.text, length: 20) %></p>
       <span class="d-flex flex-row-reverse m-3">Comments: <%= post.commentscounter %>,Likes: <%= post.likescounter %></span>
-      
       <% post.last_five_comments.each do |comment| %>
         <div class="justify-content-between border border-dark m-3">
           <p class='m-2'><%= comment.author.name %>: <%= comment.text %></p>
+          <% if can? :destory, @comment %>
+            <%= link_to 'Delete', user_post_comments_path(@user,@post), method: :delete , class: "col-2 m-2 btn btn-danger"%>
+          <% end %>
         </div>
       <% end %>
-      <div class='d-flex justify-content-end'>  <%= link_to "delete this post ", user_posts_path(@user), class: "col-2 m-2 btn btn-danger" %> </div>
+      <% if can? :destroy, @post %>
+        <%= link_to 'Delete', @post, method: :delete , class: "col-2 m-2 btn btn-danger"%>
+      <% end %>
     </div>
   <% end %>
   <div class="row col-2 justify-content-between m-auto mb-1">

@@ -7,6 +7,12 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'author_id'
   after_initialize :set_defaults
 
+  roles = [ :admin , :default ]
+
+  def is?( requested_role )
+    role == requested_role.to_s
+  end
+
   validates_presence_of :name, presence: true
   validates :postscounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
