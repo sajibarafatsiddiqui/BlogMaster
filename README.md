@@ -51,6 +51,7 @@
 - **Created Unit tests using RSpec on Controller, Views and Routes**
 - **Added the feaured of making commentd and giving like to blog post**
 - **Added Integration testing using Capybara**
+- **Added Devise for Authentication.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
