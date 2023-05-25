@@ -17,5 +17,4 @@ class User < ApplicationRecord
   def set_defaults
     self.postscounter ||= 0
   end
-
 end
