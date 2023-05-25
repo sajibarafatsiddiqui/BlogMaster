@@ -7,9 +7,7 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'author_id'
   after_initialize :set_defaults
 
-  roles = [ :admin , :default ]
-
-  def is?( requested_role )
+  def is?(requested_role)
     role == requested_role.to_s
   end
 
