@@ -53,6 +53,7 @@
 - **Added Integration testing using Capybara**
 - **Added Devise for Authentication.**
 - **Added CanCanCan for Authentication.**
+- **Added api endpoints for the app.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
