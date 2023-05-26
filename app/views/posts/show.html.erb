@@ -1,20 +1,28 @@
- <div class="container mt-5">
-  <div class="row justify-content-between m-auto border border-dark mb-1">
+<div class="container border border-dark mb-1 ">
+  <div class="row justify-content-between ">
     <h2><%= @post.title %> by <%= @post.author.name %></h2>
-    <span class="d-flex justify-content-end">Comments: <%= @post.commentscounter %>,Likes: <%= @post.likescounter %></span>
     <p><%= @post.text %></p>
-  </div>
-  <%= form_with model: [:user, :post, @comment],  url: user_post_comments_path(@user, @post), html: { class: 'row justify-content-between m-auto border border-dark mb-3' } do |form| %>
-  <p>Create a comment:</p>  <%= form.text_field :text, class: "col-11 m-auto" %><br />
-  <%= form.submit class: "mt-2 mb-2 m-4 col-4 d-flex " %>
-<% end %>
- <div class="row justify-content-between m-auto border border-dark mb-3">
-  <p>Give a like:</p>    <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post %>
-  </div>
-  <% @post.comments.includes(:author).each do |comment| %>
-   <div class="row justify-content-between m-auto border border-dark mb-3">
-   <p><%= comment.author.name %>: <%= comment.text %></p>
-   </div>
-   <% end %>
+    <span class="d-flex justify-content-end">Comments: <%= @post.commentscounter %>,Likes: <%= @post.likescounter %></span>
+    <%= form_with model: [:user, :post, @comment],  url: user_post_comments_path(@user, @post), html: { class: "border border-dark col-11 m-auto mb-3 mt-2" } do  |form| %>
+      <p>Create a comment:</p>
+      <%= form.text_field :text, class: "col-11 m-auto" %><br />
+      <%= form.submit class: "mt-2 mb-2 m-4 col-4 d-flex " %>
+    <% end %>
+    <div class="col-11  m-auto border border-dark mb-3 m-auto">
+      <p>Give a like:</p>
+      <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post %>
     </div>
-  
+    <% @post.comments.includes(:author).each do |comment| %>
+      <div class="col-11 justify-content-between m-auto border border-dark mb-3">
+        <p><%= comment.author.name %>: <%= comment.text %></p>
+    
+        <% if can? :destory, @comment %>
+  <%= link_to 'Delete', user_post_comment_path(@user,@post,comment), data: { turbo_method: "delete", turbo_confirm: "Are you sure?" } ,class: "col-2 m-2 btn btn-danger" %>
+<% end %>
+      </div>
+    <% end %>
+  </div>
+  <% if can? :destroy, @post %>
+    <%= link_to 'Delete', user_post_path(@post),  data: { turbo_method: "delete", turbo_confirm: "Are you sure?" } , class: "col-2 m-2 btn btn-danger"%>
+  <% end %>
+</div>

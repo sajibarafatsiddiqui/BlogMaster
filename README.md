@@ -52,6 +52,7 @@
 - **Added the feaured of making commentd and giving like to blog post**
 - **Added Integration testing using Capybara**
 - **Added Devise for Authentication.**
+- **Added CanCanCan for Authentication.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
