@@ -14,10 +14,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @user = @comment.author
-    @post= @comment.post
+    @post = @comment.post
     @comment.destroy
     redirect_to user_post_path(@user, @post)
   end
+
   private
 
   def comment_params
