@@ -25,13 +25,13 @@
         <div class="justify-content-between border border-dark m-3">
           <p class='m-2'><%= comment.author.name %>: <%= comment.text %></p>
           <% if can? :destory, @comment %>
-            <%= link_to 'Delete', user_post_comments_path(@user,@post), method: :delete , class: "col-2 m-2 btn btn-danger"%>
+            <%= link_to 'Delete', user_post_comment_path(@user, post, comment),  data: { turbo_method: "delete", turbo_confirm: "Are you sure?" }, class: "col-2 m-2 btn btn-danger"%>
           <% end %>
         </div>
       <% end %>
-      <% if can? :destroy, @post %>
-        <%= link_to 'Delete', @post, method: :delete , class: "col-2 m-2 btn btn-danger"%>
-      <% end %>
+     <% if can? :destroy, @post %>
+    <%= link_to 'Delete', user_post_path(@user,post),  data: { turbo_method: "delete", turbo_confirm: "Are you sure?" } , class: "col-2 m-2 btn btn-danger"%>
+  <% end %>
     </div>
   <% end %>
   <div class="row col-2 justify-content-between m-auto mb-1">

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def create
     @post = Post.find(params[:post_id])
     @user = @post.author
@@ -10,6 +11,13 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @user = @comment.author
+    @post= @comment.post
+    @comment.destroy
+    redirect_to user_post_path(@user, @post)
+  end
   private
 
   def comment_params
