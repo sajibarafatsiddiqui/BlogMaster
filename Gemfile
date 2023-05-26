@@ -81,4 +81,5 @@ end
 
 gem 'cancancan', '~> 1.9'
 gem 'devise'
+gem 'responders'
 gem 'rubocop', '>= 1.0', '< 2.0'
